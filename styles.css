@@ -1,44 +1,114 @@
-
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background: #f9f9f9;
-  color: #333;
+:root{
+  --brand:#0c5dbb;
+  --brand-2:#0aa0ff;
+  --ink:#1f2b3a;
+  --muted:#6a7787;
+  --bg:#f6f8fb;
+  --card:#ffffff;
+  --ok:#14a44d;
+  --cta:#0d6efd;
 }
 
-header {
-  background: #0077cc;
-  color: white;
-  padding: 2rem;
-  text-align: center;
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;
+  color:var(--ink);
+  background:#fff;
+  line-height:1.55;
 }
 
-.services {
-  display: flex;
-  justify-content: space-around;
-  margin: 2rem;
+.container{width:min(1100px, 92%);margin-inline:auto}
+
+.site-header{
+  position:sticky; top:0; z-index:10;
+  background:#fff; border-bottom:1px solid #e8eef6;
+}
+.header-wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0}
+.brand{display:flex;align-items:center;gap:10px;color:var(--ink);text-decoration:none;font-weight:600}
+.logo{width:28px;height:28px}
+.cta{
+  display:inline-flex;align-items:center;gap:.5rem;
+  padding:.8rem 1.1rem;border-radius:.6rem;
+  text-decoration:none;font-weight:700; letter-spacing:.2px;
+  border:1px solid transparent; transition:all .15s ease;
+}
+.cta-primary{background:var(--brand);color:#fff}
+.cta-primary:hover{filter:brightness(1.05)}
+.cta-secondary{background:#fff;color:var(--brand);border-color:var(--brand)}
+.cta-secondary:hover{background:var(--brand);color:#fff}
+.cta-phone{background:#fff;color:var(--brand);border:1px solid var(--brand)}
+
+.hero{
+  position:relative; isolation:isolate;
+  color:#fff;
+  background:linear-gradient(135deg, var(--brand) 0%, #143b6d 100%);
+}
+.hero-bg{
+  position:absolute; inset:0; z-index:-1;
+  background-image: url('../img/hero.jpg');
+  background-size:cover; background-position:center;
+  opacity:.28;
+}
+.hero-inner{padding:72px 0 56px}
+.hero h1{font-size:clamp(28px, 4vw, 44px);margin:0 0 8px}
+.subhead{max-width:58ch;font-size:1.05rem;opacity:.95}
+.mini-note{opacity:.9;font-size:.9rem;margin-top:.5rem}
+.hero-ctas{margin-top:18px}
+
+.grid{padding:56px 0}
+.features{background:var(--bg)}
+.features h2,
+.services h2,
+.areas h2,
+.testimonials h2{margin:0 0 16px}
+.feature-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px;padding-left:1rem}
+.feature-list li{list-style:""; padding-left:.25rem}
+
+.cards{display:grid; grid-template-columns:repeat(auto-fit, minmax(260px,1fr)); gap:16px; margin-top:10px}
+.card{
+  background:var(--card); border:1px solid #e9eef6; border-radius:12px;
+  padding:18px; box-shadow:0 2px 10px rgba(20,35,60,.04);
+}
+.card h3{margin-top:0}
+
+.center{text-align:center;margin-top:14px}
+
+.areas .areas-line{font-size:1.05rem}
+.muted{color:var(--muted)}
+
+.testimonials blockquote{margin:0}
+.testimonials cite{display:block;margin-top:10px;color:var(--muted)}
+
+.cta-band{
+  background:linear-gradient(135deg, #0d5ef0, #093e9f);
+  color:#fff; text-align:center; padding:48px 0;
+}
+.cta-band h2{margin:0 0 12px}
+
+.site-footer{background:#0f1f33;color:#d9e5ff}
+.footer-wrap{display:grid; grid-template-columns:1fr 2fr; gap:24px; padding:28px 0}
+.footer-brand{margin:0}
+.footer-phone a{color:#fff; text-decoration:none; font-weight:700}
+.footer-nav a{color:#cfe0ff;text-decoration:none}
+.footer-nav a:hover{text-decoration:underline}
+.disclaimer p{margin:.4rem 0 0; color:#cfe0ff}
+.legal{border-top:1px solid rgba(255,255,255,.15); padding:12px 0; color:#cfe0ff; text-align:center; font-size:.92rem}
+
+.mobile-call{
+  position:fixed; left:0; right:0; bottom:12px; margin:auto;
+  width:min(92%, 520px);
+  background:var(--cta); color:#fff; border-radius:999px; text-align:center;
+  text-decoration:none; padding:14px 18px; font-weight:800;
+  box-shadow:0 10px 24px rgba(13,110,253,.35);
+  display:none; z-index:12;
 }
 
-.service {
-  background: white;
-  padding: 1rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  flex: 1;
-  margin: 0 1rem;
+@media (max-width:900px){
+  .footer-wrap{grid-template-columns:1fr}
 }
-
-.compliance {
-  background: #eef;
-  padding: 1.5rem;
-  margin: 2rem;
-  border-radius: 8px;
-}
-
-footer {
-  background: #0077cc;
-  color: white;
-  text-align: center;
-  padding: 1rem;
+@media (max-width:720px){
+  .hero-inner{padding:56px 0 44px}
+  .mobile-call{display:block}
+  .cta-phone{display:none}
 }
